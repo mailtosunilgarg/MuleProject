@@ -1,0 +1,46 @@
+#%RAML 1.0
+version: v1
+title: MS3andME
+baseUri: https://mocksvc.mulesoft.com/mocks/98deac6f-0da0-47ad-8fc8-012982691f70/challenge # 
+description: Will show the number in accending or decnding order based on divisible by 3 and/or 7
+/challenge:
+  get:    
+    queryParameters: 
+      start:
+        type: integer
+        example: 1
+        displayName: Start Range
+        default: 1
+        required: true
+        minimum: 1
+        maximum: 199
+        description: Start Range
+      end:
+        type: integer
+        example: 20
+        displayName: End Range
+        default: 199
+        required: true
+        minimum: 2
+        maximum: 200
+        description: End Range
+      order:
+        type: string
+        enum: [asc,dsc]
+        default: asc
+        required: false
+        displayName: Order 
+        description: Order for sorting in ascending or decending
+    responses: 
+      200:
+        body: 
+          application/json:
+            example: !include response.json
+
+
+      
+       
+    
+      
+  
+  
